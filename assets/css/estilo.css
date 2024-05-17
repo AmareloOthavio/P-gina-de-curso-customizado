@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root {
+    --margem-baixo-header-footer: 100px
+}
+body {
+    background-image: url(../img/textura-fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(112 0 0);
+    flex-direction: column;
+    margin-bottom: 100px;
+    padding-bottom: 20px;
+
+    justify-self: stretch;
+}
+footer {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(112 0 0);
+    flex-direction: column;
+    margin-top: 100px;
+    padding-bottom: 20px;
+    font-size: 25px;
+
+    justify-self: stretch;
+}
+header h1 {
+    color: white;
+    margin-bottom: 10px;
+}
+.logo {
+    width: 300px;
+    height: 92px;
+    margin: 20px;
+}
+:last-child section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+/* Início das seções */
+.btn {
+    position: static;
+    bottom: 10vh;
+    margin-bottom: 50px;
+    height: 50px;
+    width: 120px;
+    border-radius: 40px 40px 40px 40px;
+    background-color: rgb(158, 29, 29);
+    color: white;
+    font-size: 15px;
+    box-shadow: 2px 2px 2px 2px grey;
+}
+.btn:hover {
+    background-color: rgb(199, 70, 70);
+    color: black;
+}
+.banner {
+    width: 400px;
+    height: 300px;
+    border-radius: 50px 50px 50px 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    position: relative;
+    color: white;
+
+    background-image: url(../img/padeiro-com-filtro.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.info-curso {
+    position: relative;
+    left: 10px;
+    background-image: url(../img/textura-info.jpg);
+    height: 300px;
+    color: black;
+    text-wrap: wrap;
+    padding: 10px;
+    padding-right: 15px; /* para evitar o corte de texto na direita */
+    border-radius: 5px 5px 5px 5px;
+    
+}
+.destacar {
+    color: red;
+    text-decoration: dotted;
+    font-size: large;
+    font-weight: bold;
+}
+.pao {
+    height: 100px;
+    width: 100px;
+}
+.banner h2 {
+    color: #fff;
+}
+.selo {
+    position: absolute;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+
+    align-self: flex-end;
+    justify-self: right;
+    
+    height: 100px;
+    width: 100px;
+}
+.selo img {
+    animation-name: balancar;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    transition: 6s;
+}
+@keyframes balancar {
+	0% {
+		transform: rotate(0);
+	}
+	33% {
+        transform: rotate(30deg);
+    }
+    66% {transform: rotate(-30deg);
+    }
+}
+
+
+
+@media (max-width: 633px) {  /* Diminui o logo e põe um espaço em cima do bloco info para celulares */ 
+    .logo {
+        width: 150px;
+        height: 46px;
+        margin: 20px;
+    }
+    .info-curso {
+        margin-top: 20px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+}
+
+
+ @media (max-width: 419px) { /*Para cabeçalho e rodapé muito pequenos */
+    header {width: 100%;}
+    footer { width: 100%;}
+} 
