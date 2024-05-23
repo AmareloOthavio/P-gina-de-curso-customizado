@@ -1,16 +1,20 @@
+/* Aviso: as adaptações responsivas foram feitas com base na alura de 667 pixels
+em alguns dispositivos o texto de seção de exemplos está no lugar errado. */
+
 * {
     margin: 0;
     padding: 0;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 :root {
     --margem-baixo-header-footer: 100px
 }
 body {
     background-image: url(../img/textura-fundo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: repeat;
+    background-size: auto;
     background-position: center center;
 }
 
@@ -26,7 +30,6 @@ header {
     justify-self: stretch;
 }
 footer {
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,32 +42,33 @@ footer {
     justify-self: stretch;
 }
 header h1 {
-    color: white;
     margin-bottom: 10px;
+}
+footer h1 {
+    font-weight: normal;
 }
 .logo {
     width: 300px;
     height: 92px;
     margin: 20px;
 }
-:last-child section {
+
+
+/* Início das seções */
+section {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
 }
-
-/* Início das seções */
 .btn {
     position: static;
-    bottom: 10vh;
-    margin-bottom: 50px;
+    margin-top: 50px;
     height: 50px;
     width: 120px;
     border-radius: 40px 40px 40px 40px;
     background-color: rgb(158, 29, 29);
-    color: white;
     font-size: 15px;
     box-shadow: 2px 2px 2px 2px grey;
 }
@@ -81,30 +85,43 @@ header h1 {
     align-items: center;
     display: grid;
     position: relative;
-    color: white;
 
     background-image: url(../img/padeiro-com-filtro.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
+.info-curso p:first-child {
+    color: black;
+}
 .info-curso {
     position: relative;
     left: 10px;
     background-image: url(../img/textura-info.jpg);
     height: 300px;
-    color: black;
-    text-wrap: wrap;
     padding: 10px;
     padding-right: 15px; /* para evitar o corte de texto na direita */
     border-radius: 5px 5px 5px 5px;
-    
 }
+
+/* Criei dois "destacar2" porque um eu vou mudar com @media */
 .destacar {
     color: red;
-    text-decoration: dotted;
+    text-decoration: underline;
     font-size: large;
     font-weight: bold;
+}
+.destacar2 {
+    color: rgb(255, 143, 143);
+    font-size: larger;
+    font-weight: bolder;
+    text-shadow: 2px 0px 1.5px black;
+}
+.destacar2-1 {
+    color: rgb(255, 143, 143);
+    font-size: larger;
+    font-weight: bolder;
+    text-shadow: 2px 0px 1.5px black;
 }
 .pao {
     height: 100px;
@@ -131,6 +148,71 @@ header h1 {
     animation-iteration-count: infinite;
     transition: 6s;
 }
+
+
+/* Seção de exemplos */
+.secao-exemplos {
+    background-color: #272727;
+    margin-top: 8%;
+    gap: 10px;
+    flex-wrap: nowrap;
+    height: 500px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-style: solid none solid none;
+    /* border: #272727 solid 10px 10px 10px 10px; */
+}
+.titulo-separado {
+    position: absolute;
+    bottom: -270px;
+}
+.titulo-separado2 {
+    position: absolute;
+    top: 1309px;
+}
+/* Cada imagem de exemplo: w:486px - h:516px originalmente */
+/* Eu dividi o tamanho para diminuir de uma maneira que não distorça a imagem */
+.bloco-exemplo {
+    width: 243px;
+    height: 258px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border: #360000 5px ridge;
+    position: relative;
+    animation-name: balancar2;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+.gambiarra {
+    width: 243px;
+    height: 258px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.e1 {
+    background-image: url(../img/exemplo1.png);
+}
+.e2 {
+    background-image: url(../img/exemplo2.png);
+}
+.e3 {
+    background-image: url(../img/exemplo3.png);
+}
+.e4 {
+    background-image: url(../img/exemplo4.png);
+}
+.e5 {
+    background-image: url(../img/exemplo5.png);
+}
+.e6 {
+    background-image: url(../img/exemplo6.png);
+}
+
+
+/* Animações */
 @keyframes balancar {
 	0% {
 		transform: rotate(0);
@@ -142,9 +224,25 @@ header h1 {
     }
 }
 
+/* Animações de cada exemplo de imagem */
+@keyframes balancar2 {
+    0% {
+        transform: rotate(5deg);
+	}
 
+    50% {
+        transform: rotate(-5deg);
+    }
+    100% {transform: rotate(5deg);}
+}
 
-@media (max-width: 633px) {  /* Diminui o logo e põe um espaço em cima do bloco info para celulares */ 
+    
+/* Mudanças especiais para dispositivos diferentes */
+ @media (max-width: 667px) {
+    /* O que isso faz: 
+    Põe no modo pequeno:
+     diminui a logo e põe um espaço em cima do bloco info em celulares.
+     Tira partes da seção de exemplos para simplificar e caber na tela */
     .logo {
         width: 150px;
         height: 46px;
@@ -154,12 +252,47 @@ header h1 {
         margin-top: 20px;
     }
     h1 {
-        font-size: 20px;
+        font-size: 15px;
+    }
+
+    /* Deixa parte dos exemplos invisíveis */
+    .e1,.e2,.e3,.e6 { /* Eu descobri que dá para fazer isso e economizar linhas */
+        width: 0px;
+        height: 0px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+        border: none;
+    }
+    .destacar2 {
+        color: #272727;
+        font-size: 0px;
+        font-weight: normal;
+        text-shadow: none;
     }
 }
 
-
- @media (max-width: 419px) { /*Para cabeçalho e rodapé muito pequenos */
-    header {width: 100%;}
-    footer { width: 100%;}
-} 
+/* Muda a posição dos dois títulos separados para continuarem em cima da parte da seção */
+@media(max-width: 667px) {
+    .titulo-separado {
+        bottom: -155px;
+    }
+    .titulo-separado2 {
+        top: 1260px;
+    }
+}
+@media(max-width:644.1px) {
+    .titulo-separado {
+        bottom: -387px;
+    }
+    .titulo-separado2 {
+        top: 1470px;
+    }
+}
+/* *Dispositivos com largura abaixo de 416 têm a largura do footer, header e seção-exemplos desconfigurada */
+/* Aumentar o padding-right */
+@media (max-width:416px) {
+    header {padding-right: 29px;}
+    footer { padding-right: 29px;}
+}
